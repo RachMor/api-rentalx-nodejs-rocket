@@ -5,7 +5,7 @@ module.exports = {
   semi: false,
   singleQuote: true,
   printWidth: 100,
-  trailingComma: 'es6',
+  trailingComma: 'all',
   bracketSpacing: true,
   overrides: [
     {

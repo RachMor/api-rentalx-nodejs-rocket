@@ -3,11 +3,11 @@ import 'reflect-metadata';
 import express, { NextFunction, Request, Response } from 'express';
 import swagger from 'swagger-ui-express';
 
-import swaggerFile from '../../swagger.json';
-import { AppError } from '../errors/AppError';
-import { routes } from './http/routes';
-import createConnection from './typeorm';
-import '../container';
+import swaggerFile from '../../../swagger.json';
+import { AppError } from '../../errors/AppError';
+import createConnection from '../typeorm';
+import { routes } from './routes';
+import '../../container';
 
 createConnection();
 const app = express();
@@ -27,6 +27,4 @@ app.use((err: Error, request: Request, response: Response, next: NextFunction) =
   });
 });
 
-app.listen(3333, () => {
-  console.log('Server is running');
-});
+export { app };

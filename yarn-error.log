@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add dayjs
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add superTest @types/superTest -D
 
 PATH: 
   C:\Python310\Scripts\;C:\Python310\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\Yarn\bin\;C:\ProgramData\nvm;C:\Program Files\nodejs;;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\rache\AppData\Local\Microsoft\WindowsApps;C:\Users\rache\AppData\Roaming\npm;C:\Users\rache\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\rache\AppData\Local\Programs\Hyper\resources\bin
@@ -14,7 +14,17 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: EPERM: operation not permitted, unlink 'C:\Users\raque\Documents\Projetos\rentalx\node_modules\.bin\ts-node-dev'
+  Error: https://registry.yarnpkg.com/superTest: Not found
+      at Request.params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\cli.js:66140:18)
+      at Request.self.callback (C:\Program Files (x86)\Yarn\lib\cli.js:140885:22)
+      at Request.emit (node:events:390:28)
+      at Request.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:141857:10)
+      at Request.emit (node:events:390:28)
+      at IncomingMessage.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:141779:12)
+      at Object.onceWrapper (node:events:509:28)
+      at IncomingMessage.emit (node:events:402:35)
+      at endReadableNT (node:internal/streams/readable:1343:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
 
 npm manifest: 
   {
@@ -27,7 +37,6 @@ npm manifest:
       "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn --poll src/shared/infra/server.ts",
       "typeorm": "ts-node-dev ./node_modules/typeorm/cli",
       "seed:admin": "ts-node-dev src/shared/infra/typeorm/seed/admin.ts"
-  
     },
     "keywords": [],
     "author": "",
@@ -59,6 +68,7 @@ npm manifest:
     "dependencies": {
       "bcryptjs": "^2.4.3",
       "csv-parse": "^5.0.4",
+      "dayjs": "^1.11.0",
       "express": "^4.17.3",
       "express-async-errors": "^3.1.1",
       "jsonwebtoken": "^8.5.1",
@@ -1513,6 +1523,11 @@ Lockfile:
       abab "^2.0.3"
       whatwg-mimetype "^2.3.0"
       whatwg-url "^8.0.0"
+  
+  dayjs@^1.11.0:
+    version "1.11.0"
+    resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.0.tgz#009bf7ef2e2ea2d5db2e6583d2d39a4b5061e805"
+    integrity sha512-JLC809s6Y948/FuCZPm5IX8rRhQwOiyMb2TfVVQEixG7P8Lm/gt5S7yoQZmC8x1UehI9Pb7sksEt4xx14m+7Ug==
   
   debug@2.6.9, debug@^2.6.9:
     version "2.6.9"

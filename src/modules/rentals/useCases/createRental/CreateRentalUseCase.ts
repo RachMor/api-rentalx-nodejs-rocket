@@ -1,4 +1,3 @@
-import { compare } from 'bcryptjs';
 import dayjs from 'dayjs';
 import { inject, injectable } from 'tsyringe';
 

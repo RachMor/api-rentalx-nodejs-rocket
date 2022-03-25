@@ -23,12 +23,22 @@ export class CreateCarImages1648140785162 implements MigrationInterface {
             type: 'timestamp',
             default: 'now()',
           },
-
+        ],
+        foreignKeys: [
+          {
+            name: 'FKCarImage',
+            referencedTableName: 'cars',
+            referencedColumnNames: ['id'],
+            columnNames: ['car_id'],
+            onDelete: 'SET NULL',
+            onUpdate: 'SET NULL',
+          },
         ],
       }),
     );
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.dropTable('cars_image');
   }
 }

@@ -36,9 +36,8 @@ describe('List Category Controller', () => {
     });
 
     const list = await request(app).get('/categories');
-    console.log('result', list);
     expect(list.status).toBe(200);
     expect(list.body.length).toBe(1);
-    // expect(list.body[0]).toHaveProperty('id');
+    expect(list.body[0]).toHaveProperty('id');
   });
 });

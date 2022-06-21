@@ -16,7 +16,7 @@ class EtherealMailProvider implements IMailProvider {
           user: account.user,
           pass: account.pass,
         },
-      });
+      })
       this.client = transporter;
     }).catch((err) => console.error(err));
   }

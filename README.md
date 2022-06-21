@@ -65,3 +65,37 @@
     [x] Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo usuário.
     [x] Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo carro.
     [x] O usuário deve estar logado na aplicação.
+    [x] Ao realizar um aluguel, o status do carro deverá ser alterado para indisponível.
+
+# Devolução do carro
+
+  1. Requisitos funcionais
+
+    [x] Deve ser possível realizar a devolução de um carro.
+  
+  2. Regras de negócio
+
+    [x] Se o carro for devolvido com menos de 24 horas, deverá ser cobrado diária completa.
+    [x] Ao realizar a devolução o carro deve ser liberado para outro aluguel.
+    [x] Ao realizar a devolução o usuuário deve ser liberado para outro aluguel.
+    [x] Ao realizar a devolução, deverá ser calculado o valor do aluguel.
+    [x] Caso o horário de devolução seja superior ao previsto para a entrega, deverá ser cobrado multa proporcional aos dias de atraso.
+    [x] Caso haja multa, deverá ser somado ao total do aluguel.
+    [x] O usuário deve estar logado na aplicação.
+
+# Recuperação de senha
+
+ 1. Requisitos funcionais
+
+    [] Deve ser possível o usuário recuperar a senha informando o email.
+    [] O usuário deve receber um e-mail com o passo a passo para a recuperação da senha.
+    [] O usuário deve inserir uma nova senha.
+  
+  2. Regras de negócio
+
+    [] O usuário precisa informar uma nova senha.
+    [] O link para recuperação deve expirar em 3 horas.
+
+
+
+

@@ -68,7 +68,7 @@ class AuthenticateUserUseCase {
       expires_date: refresh_token_expires_date,
     });
 
-    const tokenReturn = { token, user: { name: user.name, email: user.email }, refresh_token };
+    const tokenReturn = { user: { name: user.name, email: user.email }, token, refresh_token };
     return tokenReturn;
   }
 }

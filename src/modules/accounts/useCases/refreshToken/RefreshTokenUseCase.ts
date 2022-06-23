@@ -5,9 +5,14 @@ import auth from '../../../../config/auth';
 import { IDateProvider } from '../../../../shared/container/providers/DateProvider/IDateProvider';
 import { IUsersTokenRepository } from '../../repositories/IUserTokensRepository';
 
-interface IPayload{
+interface IPayload {
   sub: string;
   email: string;
+}
+
+interface ITokenResponse{
+  refresh_token: string;
+  token: string;
 }
 
 @injectable()
@@ -21,15 +26,13 @@ class RefreshTokenUseCase {
 
   }
 
-  async execute(token: string): Promise<string> {
+  async execute(token: string): Promise<ITokenResponse> {
     const { sub, email } = verify(token, auth.secret_refresh_token) as IPayload;
     const user_id = sub;
     const userToken = await this.usersTokenRepository.findByUserIdAndRefreshToken(user_id, token);
-
-    if (userToken) {
+    if (!userToken) {
       throw new Error('Refresh token does not exists!');
     }
-
     await this.usersTokenRepository.deleteById(userToken.id);
     const refresh_token = sign({ email }, auth.secret_refresh_token, {
       subject: user_id,
@@ -43,7 +46,16 @@ class RefreshTokenUseCase {
       expires_date: refresh_token_expires_date,
     });
 
-    return refresh_token;
+    const newToken = sign(
+      {},
+      auth.secret_token,
+      { subject: user_id, expiresIn: auth.expires_in_token },
+    );
+
+    return {
+      refresh_token,
+      token: newToken,
+    };
   }
 }
 
